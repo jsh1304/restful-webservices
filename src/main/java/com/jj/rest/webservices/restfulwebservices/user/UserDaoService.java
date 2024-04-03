@@ -38,6 +38,6 @@ public class UserDaoService {
     // 주어진 id에 해당하는 사용자 데이터를 반환
     public User findOne(int id){
         Predicate<? super User> predicate = user -> user.getId().equals(id);
-        return users.stream().filter(predicate).findFirst().get();
+        return users.stream().filter(predicate).findFirst().orElse(null);
     }
 }
