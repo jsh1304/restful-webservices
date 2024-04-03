@@ -27,6 +27,12 @@ public class UserResource {
     // 주어진 id에 대한 사용자 정보 반환
     @GetMapping("/users/{id}")
     public User retrieveUser(@PathVariable int id){
+        // 주어진 ID에 해당하는 사용자 정보를 가져옴
+        User user = service.findOne(id);
+
+        // 사용자 정보가 없는 경우 UserNotFoundException을 발생시킴
+        if (user == null)
+            throw new UserNotFoundException("id :" + id);
         return service.findOne(id);
     }
 
