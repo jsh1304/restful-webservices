@@ -36,6 +36,13 @@ public class UserResource {
         return service.findOne(id);
     }
 
+    // 주어진 id에 대한 사용자 정보 삭제
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+        service.deleteById(id);
+    }
+
+
     /**
      * 새로운 사용자를 생성하는 메서드
      * 사용자 정보를 전달받아서 저장 후, 생성된 사용자 정보와 함께 201 Created 상태 코드를 반환
