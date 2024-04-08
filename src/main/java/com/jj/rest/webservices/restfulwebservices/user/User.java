@@ -1,10 +1,18 @@
 package com.jj.rest.webservices.restfulwebservices.user;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class User {
+
     private Integer id;
+
+    @Size(min=2) // 최소 2글자 이상
     private String name;
+
+    @Past // 과거의 날짜여야 함
     private LocalDate birthday;
 
     // 사용자 객체를 생성하는 생성자

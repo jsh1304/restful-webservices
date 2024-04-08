@@ -1,5 +1,6 @@
 package com.jj.rest.webservices.restfulwebservices.user;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -48,7 +49,7 @@ public class UserResource {
      * 사용자 정보를 전달받아서 저장 후, 생성된 사용자 정보와 함께 201 Created 상태 코드를 반환
      */
     @PostMapping("/users")
-    public ResponseEntity<Object> createUser(@RequestBody User user){
+    public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
         // 사용자 정보를 저장
         User savedUser = service.save(user);
 
